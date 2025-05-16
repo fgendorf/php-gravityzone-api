@@ -49,10 +49,10 @@ class GravityZone
      * @param string $apiKey
      * @param HandlerStack|null $handler
      */
-    public function __construct(string $host, string $apiKey, HandlerStack $handler = null)
+    public function __construct(string $host, string $apiKey, HandlerStack $handler = null,$version = '1.0')
     {
         $this->client = new Client([
-            'base_uri' => "https://$host/api/v1.0/jsonrpc/",
+            'base_uri' => "https://$host/api/v{$version}/jsonrpc/",
             'headers' => [
                 'Authorization' => 'Basic ' . base64_encode("$apiKey:"),
                 'Content-Type' => 'application/json',
